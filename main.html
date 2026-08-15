@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Champion MD Bot Dashboard</title>
+  <style>
+    body { font-family: Arial; background: #0d1117; color: #e6edf3; text-align: center; padding: 2rem; }
+    .container { max-width: 600px; margin: auto; background: #161b22; padding: 2rem; border-radius: 16px; }
+    h1 { color: #58a6ff; }
+    .status { font-size: 1.5rem; margin: 1rem 0; }
+    .badge { background: #238636; padding: 0.5rem 1rem; border-radius: 20px; }
+    .footer { margin-top: 2rem; font-size: 0.9rem; color: #8b949e; }
+    img { max-width: 150px; border-radius: 50%; margin: 1rem 0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="https://files.catbox.moe/qtp3q8.png" alt="Champion MD">
+    <h1>🤖 Champion MD</h1>
+    <p>Created by <strong>Iceback Master Tech</strong></p>
+    <p>Owner: +263788377887</p>
+    <div class="status">
+      <span class="badge">🟢 Online</span>
+    </div>
+    <p>Uptime: <span id="uptime">loading...</span></p>
+    <p>Admins: <span id="admins">loading...</span></p>
+    <p>Commands: 100+</p>
+    <div class="footer">© 2026 Champion MD Bot | All rights reserved</div>
+  </div>
+  <script>
+    async function fetchStatus() {
+      try {
+        const res = await fetch('/api/status');
+        const data = await res.json();
+        document.getElementById('uptime').textContent = Math.floor(data.uptime) + 's';
+      } catch (e) {}
+      try {
+        const res = await fetch('/api/admins');
+        const admins = await res.json();
+        document.getElementById('admins').textContent = admins.join(', ');
+      } catch (e) {}
+    }
+    fetchStatus();
+    setInterval(fetchStatus, 10000);
+  </script>
+</body>
+</html>
