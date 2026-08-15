@@ -1,0 +1,23 @@
+{
+  "name": "champion-md-bot",
+  "version": "1.0.0",
+  "description": "Champion MD WhatsApp Bot by Iceback Master Tech",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "pair": "node pair.js"
+  },
+  "dependencies": {
+    "@whiskeysockets/baileys": "^6.6.0",
+    "qrcode-terminal": "^0.12.0",
+    "express": "^4.18.2",
+    "axios": "^1.6.0",
+    "dotenv": "^16.3.1",
+    "pino": "^8.16.0",
+    "fs-extra": "^11.1.1",
+    "moment": "^2.29.4",
+    "node-fetch": "^2.6.7"
+  },
+  "author": "Iceback Master Tech",
+  "license": "MIT"
+}
